@@ -4,9 +4,10 @@ import {AccountData} from "aptos/dist/generated";
 import {getAccountTransactions} from "../api/account/getAccountTxs";
 import {AptosClient, Types} from "aptos";
 import {getAccountResources} from "../api/account/getAccountResources";
+import {getAccountModules} from "../api/account/getAccountModules";
 
 const DEVNET_NODE_URL = "https://fullnode.devnet.aptoslabs.com";
-const SAMPLE_ACCOUNT = "0xe31b07ca3a84c16e962297611e3b19768846a94ba6181e62e00d21f37a34b9d1";
+const SAMPLE_ACCOUNT = "0x798ee2d77e293413b2b6b7fe0442521adcb0a58fd52ca0c85cee9caae756c363";
 
 describe("getAccount test", async() => {
     let aptosClient;
@@ -54,4 +55,19 @@ describe("getAccount test", async() => {
 
         throw new Error('Account resource not found');
     });
+
+    it("should return account modules", async() => {
+        // given
+
+        // when
+        const accountModules: Types.MoveModuleBytecode[] = await getAccountModules({address: SAMPLE_ACCOUNT}, aptosClient);
+
+        // then
+        accountModules.map(resource => {
+            if (!resource['abi']) {
+                throw new Error('There is no account module.')
+            }
+            expect(resource['abi']['address'] === SAMPLE_ACCOUNT);
+        })
+    })
 })
