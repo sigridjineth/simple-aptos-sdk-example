@@ -1,0 +1,1 @@
+export const DEVNET_NODE_URL = "https://fullnode.devnet.aptoslabs.com";

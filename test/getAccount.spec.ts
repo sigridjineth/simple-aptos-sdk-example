@@ -5,8 +5,8 @@ import {getAccountTransactions} from "../api/account/getAccountTxs";
 import {AptosClient, Types} from "aptos";
 import {getAccountResources} from "../api/account/getAccountResources";
 import {getAccountModules} from "../api/account/getAccountModules";
+import {DEVNET_NODE_URL} from "../api/constants";
 
-const DEVNET_NODE_URL = "https://fullnode.devnet.aptoslabs.com";
 const SAMPLE_ACCOUNT = "0x798ee2d77e293413b2b6b7fe0442521adcb0a58fd52ca0c85cee9caae756c363";
 
 describe("getAccount test", async() => {
