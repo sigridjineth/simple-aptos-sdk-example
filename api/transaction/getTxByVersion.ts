@@ -5,7 +5,7 @@
  */
 
 import {AptosClient, Types} from "aptos";
-import {withResponseError} from "./response/WithResponseError";
+import {withResponseError} from "../response/WithResponseError";
 
 export async function getTransactionByVersion(version: number, aptosClient: AptosClient): Promise<Types.Transaction> {
     return withResponseError(aptosClient.getTransactionByVersion(version));

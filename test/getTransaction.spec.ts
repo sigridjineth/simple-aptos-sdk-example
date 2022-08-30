@@ -1,6 +1,6 @@
-import {getTransactionByHash} from "../api/getTxByHash";
+import {getTransactionByHash} from "../api/transaction/getTxByHash";
 import { expect } from 'chai';
-import {getTransactionByVersion} from "../api/getTxByVersion";
+import {getTransactionByVersion} from "../api/transaction/getTxByVersion";
 import {Transaction} from "aptos/dist/generated";
 import {AptosClient} from "aptos";
 

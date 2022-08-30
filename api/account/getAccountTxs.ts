@@ -1,5 +1,5 @@
 import {AptosClient, Types} from "aptos";
-import {withResponseError} from "./response/WithResponseError";
+import {withResponseError} from "../response/WithResponseError";
 
 export const getAccountTransactions = async (
     requestParams: {
